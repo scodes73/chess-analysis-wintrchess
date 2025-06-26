@@ -19,12 +19,10 @@ chrome.runtime.onInstalled.addListener(() => {
     });
 });
 
-let lichessTab = null;
 let pgnResult = null;
 
 chrome.action.onClicked.addListener(async (tab) => {
     pgnResult = null;
-    lichessTab = null;
 
     // Extract PGN from current chess.com tab
     [{ result: pgnResult }] = await chrome.scripting.executeScript({
@@ -32,33 +30,22 @@ chrome.action.onClicked.addListener(async (tab) => {
         files: ["scripts/common.js", "scripts/getPgn.js"]
     });
 
-    // Open lichess paste tab next to current
-    lichessTab = await chrome.tabs.create({
-        url: "https://lichess.org/paste",
+    // Open Wintrchess tab next to current
+    wintrchessTab = await chrome.tabs.create({
+        url: "https://wintrchess.com/analysis",
         index: tab.index + 1
     });
 
-    chrome.tabs.onUpdated.addListener(lichessImport);
+    chrome.tabs.onUpdated.addListener(wintrchessImport);
 });
 
-async function lichessImport(id, changeInfo) {
-    if (id !== lichessTab.id || changeInfo.status !== "complete") return;
+async function wintrchessImport(id, changeInfo) {
+    if (changeInfo.status !== "complete") return;
 
-    chrome.tabs.onUpdated.removeListener(lichessImport);
-    chrome.tabs.onUpdated.addListener(lichessAfterImport);
+    chrome.tabs.onUpdated.removeListener(wintrchessImport);
 
     await chrome.scripting.executeScript({
-        target: { tabId: lichessTab.id },
+        target: { tabId: id },
         files: ["scripts/common.js", "scripts/fillPgn.js"]
-    });
-}
-
-async function lichessAfterImport(id, changeInfo) {
-    if (id !== lichessTab.id || changeInfo.status !== "complete") return;
-    chrome.tabs.onUpdated.removeListener(lichessAfterImport);
-
-    await chrome.scripting.executeScript({
-        target: { tabId: lichessTab.id },
-        files: ["scripts/common.js", "scripts/setAnalysisOptions.js"]
     });
 }
