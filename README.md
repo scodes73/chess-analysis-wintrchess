@@ -2,6 +2,7 @@
 
 This chrome extension will help you analyze your chess.com games on wintrchess. Just click the icon in your extension bar when you're on a chess.com game and a new wintrchess tab will open with your game.
 
+![banner](banner/banner.png)
 
 ## How It Works
 
@@ -15,5 +16,5 @@ This chrome extension will help you analyze your chess.com games on wintrchess. 
 I welcome suggestions and bug reports. Please open an issue if you would like to suggest something.
 
 ## Thanks to:
-- Original Repo Forked from: https://github.com/imlokesh/free-chess-analysis
+- Original Repo Forked from: [Free Chess Analysis](https://github.com/imlokesh/free-chess-analysis)
 - Logo from [Chessboard icons created by Vectorsclub - Flaticon](https://www.flaticon.com/free-icons/chessboard)
