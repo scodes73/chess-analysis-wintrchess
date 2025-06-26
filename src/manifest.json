@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Chess Analysis WintrChess",
     "description": "Analyze your chess.com games on WintrChess for free. ",
-    "version": "0.1.1",
+    "version": "0.0.1",
     "icons": {
         "64": "img/64.png",
         "128": "img/128.png",
