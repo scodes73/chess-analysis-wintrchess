@@ -15,5 +15,5 @@ This chrome extension will help you analyze your chess.com games on wintrchess. 
 I welcome suggestions and bug reports. Please open an issue if you would like to suggest something.
 
 ## Thanks to:
-- Original Repo: https://github.com/imlokesh/free-chess-analysis
-- Logo from [https://www.flaticon.com/free-icons/chessboard](Chessboard icons created by Vectorsclub - Flaticon)
+- Original Repo Forked from: https://github.com/imlokesh/free-chess-analysis
+- Logo from [Chessboard icons created by Vectorsclub - Flaticon](https://www.flaticon.com/free-icons/chessboard)
